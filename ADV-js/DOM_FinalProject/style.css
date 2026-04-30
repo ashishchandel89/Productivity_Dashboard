@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: aeonik;
+}
+
+:root {
+  --black: black;
+  --green: rgb(72, 132, 59);
+  --grey: rgba(245, 235, 235, 0.405);
+  --red: rgba(255, 0, 0, 0.74);
+  --white: white;
+  --lightgrey: #d6d5d417;
+  --bluryYellow: rgba(255, 174, 0, 0.34);
+  --yellow: rgb(255, 174, 0);
+  --darkgreen: green;
+}
+
+@font-face {
+  font-family: aeonik;
+  font-weight: 200;
+  src: url("./AeonikTRIAL-Light.otf");
+}
+@font-face {
+  font-family: aeonik;
+  font-weight: 500;
+  src: url("./AeonikTRIAL-Regular.otf");
+}
+@font-face {
+  font-family: aeonik;
+  font-weight: 700;
+  src: url("./AeonikTRIAL-Bold.otf");
+}
+main {
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+}
+main section.allElem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-top: 40px;
+  justify-content: space-evenly;
+  gap: 1rem;
+  overflow: auto;
+  position: absolute;
+}
+main section.allElem .elem {
+  width: 300px;
+  height: 300px;
+  border-radius: 2rem;
+  box-shadow: 0.2rem 0.2rem 1rem var(--green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(130, 169, 107, 0);
+}
+main section.allElem .elem img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  padding: 0.8rem;
+  box-shadow: 0.2rem 0.6rem 1rem rgb(26, 26, 26);
+  background-color: var(--grey);
+  box-shadow: 0.1rem 0.3rem 1rem var(--green);
+}
+main section.allElem .elem {
+  background-color: rgba(130, 169, 107, 0);
+  box-shadow: 0.2rem 0.2rem 1rem black;
+}
+main section.allElem .elem:hover {
+  scale: 0.96;
+  transition: all ease 0.8s;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 4rem;
+  box-shadow: 0.2rem 0.2rem 1rem var(--green);
+  cursor: pointer;
+}
+main section.allElem .elem:hover img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  padding: 0.8rem;
+  box-shadow: 0.2rem 0.6rem 1rem rgb(26, 26, 26);
+  background-color: var(--grey);
+}
+main section.allElem .elem:hover {
+  background-image: url("https://media3.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZjF4cDFpemx6ZW92cnJleTFza2d3NHgxZ283b295cHRxc3dzZXgzNCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/IGL5GFRvVTtK8O9l7h/giphy.webp");
+}
+main .fullElem {
+  height: 100%;
+  width: 100%;
+  background-color: var(--black);
+  padding: 2.5rem;
+  display: none;
+  position: relative;
+  z-index: 999;
+}
+main .fullElem .topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .fullElem .topbar h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 200;
+}
+main .fullElem .topbar .back {
+  width: 90px;
+  height: 50px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 200;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  background-color: var(--red);
+  transition: all ease 0.1s;
+}
+main .fullElem .topbar .back:active {
+  scale: 0.97;
+}
+main .fullElem .todo-container {
+  width: 100%;
+  height: 85%;
+  background-color: var(--lightgrey);
+  margin-top: 2.8rem;
+  border-width: 6px;
+  border-radius: 10px;
+  transition: all 0.6s linear;
+  border: 0 solid rgba(0, 0, 0, 0);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+main .fullElem .todo-container .addTask {
+  width: 30%;
+  height: 100%;
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+}
+main .fullElem .todo-container .addTask form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+main .fullElem .todo-container .addTask form #taskName {
+  width: 100%;
+  height: 3.6rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+  border: none;
+}
+main .fullElem .todo-container .addTask form textarea {
+  padding: 1rem;
+  width: 100%;
+  height: 90%;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-weight: 200;
+  color: var(--white);
+  background-color: var(--lightgrey);
+  border: none;
+  outline: none;
+}
+main .fullElem .todo-container .addTask form .addTaskBtn {
+  padding: 15px 25px;
+  width: 100%;
+  height: 4rem;
+  font-size: 1rem;
+  background-color: var(--bluryYellow);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  outline: none;
+  margin-bottom: 20px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+main .fullElem .todo-container .addTask form button:active {
+  scale: 0.97;
+  background-color: var(--yellow);
+}
+main .fullElem .todo-container .addTask form .mark-imp {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  justify-content: start;
+  margin-left: 0.5rem;
+  gap: 0.7rem;
+}
+main .fullElem .todo-container .addTask form .mark-imp input {
+  scale: 1;
+  cursor: pointer;
+}
+main .fullElem .todo-container .addTask form .mark-imp label {
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+main .fullElem .todo-container .allTask {
+  width: 70%;
+  height: 100%;
+  background-color: var(--black);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+  scrollbar-width: none;
+}
+main .fullElem .todo-container .allTask .task {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--lightgrey);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+main .fullElem .todo-container .allTask .task h5 {
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: 500;
+  align-items: center;
+}
+main .fullElem .todo-container .allTask .task h5 span {
+  margin-left: 0.5rem;
+  background-color: var(--red);
+  font-size: 0.69rem;
+  font-weight: 700;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.2rem;
+}
+main .fullElem .todo-container .allTask .task h5 span.true {
+  opacity: 1;
+}
+main .fullElem .todo-container .allTask .task h5 span.false {
+  opacity: 0;
+}
+main .fullElem .todo-container .allTask .task button {
+  padding: 0.5rem 0.8rem;
+  color: var(--white);
+  background-color: var(--darkgreen);
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+main .fullElem .todo-container:hover {
+  border-width: 7px;
+  animation-play-state: running;
+  background-color: var(--black);
+  box-shadow: 0 0 50px var(--bluryYellow);
+}/*# sourceMappingURL=style.css.map */
