@@ -241,7 +241,7 @@ main .fullElem .todo-container .allTask .task .top-task {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 main .fullElem .todo-container .allTask .task .top-task h5 {
   font-size: 1.5rem;
@@ -273,20 +273,28 @@ main .fullElem .todo-container .allTask .task .top-task button {
   font-weight: 600;
   cursor: pointer;
 }
+main .fullElem .todo-container .allTask .task .top-task:hover {
+  border: 1px solid rgba(255, 174, 0, 0.5);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 174, 0, 0.3), 0 0 25px rgba(255, 174, 0, 0.2), 0 10px 30px rgba(0, 0, 0, 0.6);
+}
 main .fullElem .todo-container .allTask .task .detail {
-  width: 70%;
+  width: 55%;
   margin-top: 0;
+  margin-left: 5px;
   display: block;
   overflow: hidden;
   transition: max-height 0.4s ease;
   color: white;
-  background-color: var(--darkgrey);
-  border-radius: 10px;
   padding: 0.5rem 1rem;
-  border: 0.8px solid var(--bluryYellow);
+  backdrop-filter: blur(10px);
+  border-radius: 0px 0px 100px 10px;
+  display: none;
+  background: linear-gradient(70deg, rgba(255, 204, 51, 0), rgba(255, 204, 51, 0.132), rgba(255, 179, 71, 0.4), rgba(255, 204, 51, 0.04));
+  box-shadow: 0 0 10px rgba(255, 174, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 main .fullElem .todo-container .allTask .task .detail p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--white);
 }
 main .fullElem .todo-container:hover {

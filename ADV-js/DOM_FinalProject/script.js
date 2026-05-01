@@ -44,7 +44,6 @@ function todoList() {
   let taskInput = document.querySelector(".addTask form input");
   let taskDetails = document.querySelector(".addTask form textarea");
   let taskCheckBox = document.querySelector(".addTask form #check");
-  
   var currentTask = [];
   if (localStorage.getItem("currentTask")) {
     currentTask = JSON.parse(localStorage.getItem("currentTask"));
@@ -64,7 +63,7 @@ function todoList() {
         <button id=${idx}>Mark as Completed</button>  
     </div>
      <div class="detail">
-      <p>This is the task's details</p>
+      <p>${elem.details}</p>
     </div>
     </div>`;
     });
@@ -78,6 +77,20 @@ function todoList() {
            renderTask();
         })
     })
+    
+    document.querySelectorAll('.top-task').forEach(function(top){
+      top.addEventListener('click',function(e){
+        if(e.target.tagName==='BUTTON')
+          return;
+         let detail = top.parentElement.querySelector('.detail');
+        if(detail.style.display==='block'){
+          detail.style.display='none';
+        }
+        else{
+          detail.style.display='block';
+        }
+      });
+    });
   }
   renderTask();
 
@@ -95,5 +108,8 @@ function todoList() {
     taskDetails.value = "";
     taskCheckBox.checked = false;
   });
+
+ 
+
 }
 todoList();
