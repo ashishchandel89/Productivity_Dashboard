@@ -58,9 +58,14 @@ function todoList() {
     let sum = "";
 
    currentTask.forEach(function (elem,idx) {
-      sum += `<div class="task">   
+      sum += `<div class="task"> 
+       <div class="top-task">  
         <h5>${elem.task} <span class="${elem.imp}">imp !</span></h5>
         <button id=${idx}>Mark as Completed</button>  
+    </div>
+     <div class="detail">
+      <p>This is the task's details</p>
+    </div>
     </div>`;
     });
     allTask.innerHTML = sum;

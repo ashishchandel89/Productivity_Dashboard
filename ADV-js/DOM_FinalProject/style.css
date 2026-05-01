@@ -231,6 +231,11 @@ main .fullElem .todo-container .allTask {
 }
 main .fullElem .todo-container .allTask .task {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main .fullElem .todo-container .allTask .task .top-task {
+  width: 100%;
   padding: 1rem;
   background-color: var(--lightgrey);
   display: flex;
@@ -238,13 +243,13 @@ main .fullElem .todo-container .allTask .task {
   justify-content: space-between;
   border-radius: 10px;
 }
-main .fullElem .todo-container .allTask .task h5 {
+main .fullElem .todo-container .allTask .task .top-task h5 {
   font-size: 1.5rem;
   color: var(--white);
   font-weight: 500;
   align-items: center;
 }
-main .fullElem .todo-container .allTask .task h5 span {
+main .fullElem .todo-container .allTask .task .top-task h5 span {
   margin-left: 0.5rem;
   background-color: var(--red);
   font-size: 0.69rem;
@@ -252,13 +257,13 @@ main .fullElem .todo-container .allTask .task h5 span {
   padding: 0.2rem 0.3rem;
   border-radius: 0.2rem;
 }
-main .fullElem .todo-container .allTask .task h5 span.true {
+main .fullElem .todo-container .allTask .task .top-task h5 span.true {
   opacity: 1;
 }
-main .fullElem .todo-container .allTask .task h5 span.false {
+main .fullElem .todo-container .allTask .task .top-task h5 span.false {
   opacity: 0;
 }
-main .fullElem .todo-container .allTask .task button {
+main .fullElem .todo-container .allTask .task .top-task button {
   padding: 0.5rem 0.8rem;
   color: var(--white);
   background-color: var(--darkgreen);
@@ -267,6 +272,22 @@ main .fullElem .todo-container .allTask .task button {
   border: none;
   font-weight: 600;
   cursor: pointer;
+}
+main .fullElem .todo-container .allTask .task .detail {
+  width: 70%;
+  margin-top: 0;
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  color: white;
+  background-color: var(--darkgrey);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border: 0.8px solid var(--bluryYellow);
+}
+main .fullElem .todo-container .allTask .task .detail p {
+  font-size: 1rem;
+  color: var(--white);
 }
 main .fullElem .todo-container:hover {
   border-width: 7px;

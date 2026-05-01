@@ -228,12 +228,17 @@ main {
         scrollbar-width: none;
         .task {
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          .top-task{
+          width: 100%;
           padding: 1rem;
           background-color: var(--lightgrey);
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           border-radius: 10px;
+          
           h5 {
             font-size: 1.5rem;
             color: var(--white);
@@ -265,6 +270,23 @@ main {
             cursor: pointer;
           }
         }
+        .detail{
+          width: 70%;
+          margin-top: 0;
+          display: block;
+          overflow: hidden;
+          transition: max-height 0.4s ease;
+          color:white;
+          background-color: var(--darkgrey);
+          border-radius: 10px;
+          padding: 0.5rem 1rem;
+          border:0.8px solid var(--bluryYellow);
+          p{
+            font-size: 1rem;
+            color:var(--white);
+          }
+        }
+      }
       }
     }
     .todo-container:hover {
