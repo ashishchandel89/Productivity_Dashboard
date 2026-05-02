@@ -114,18 +114,35 @@ function dailyPlanner() {
   let bottom = document.querySelector(".bottom-planner");
   let plan = document.querySelector(".bottom-planner .plan");
   let plannerSum = "";
+  let plannerObject={};
+  let planData=JSON.parse(localStorage.getItem('planData')) || {};
   let hrs = Array.from({ length: 18 }, function (dets, idx) {
     return `${6 + idx}:00 - ${7 + idx}:00`;
   });
   hrs.forEach(function (elem, idx) {
+    let savedData=planData[idx] || '';
     plannerSum =
       plannerSum +
       `<div class="plan">
               <h4>${elem}</h4>
-              <input type="text" placeholder="..." id="${idx}" class="plan-placeholder">
+              <input type="text" placeholder="..." id="${idx}" class="plan-placeholder" value="${savedData}">
             </div>
       `;
   });
   bottom.innerHTML = plannerSum;
+
+  let plannerInput=document.querySelectorAll('.plan input');
+  plannerInput.forEach(function(elem){
+    elem.addEventListener('input',function(){
+      planData[elem.id]=elem.value;
+      localStorage.setItem('planData',JSON.stringify(planData));
+    })
+  })
+
 }
 dailyPlanner();
+
+function motivationalQuotes(){
+  
+}
+motivationalQuotes();

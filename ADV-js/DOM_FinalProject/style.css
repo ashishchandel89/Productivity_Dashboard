@@ -21,6 +21,7 @@ body {
   --bluryYellow: rgba(255, 174, 0, 0.34);
   --yellow: rgb(255, 174, 0);
   --darkgreen: green;
+  --greyWhite: rgb(186, 185, 185);
 }
 
 @font-face {
@@ -324,6 +325,7 @@ main .fullElem .bottom-planner {
   margin-top: 3rem;
   gap: 2.5rem;
   scrollbar-width: none; /* Firefox */
+  transition: all 0.6s linear;
 }
 main .fullElem .bottom-planner .plan {
   width: 48%;
@@ -349,9 +351,9 @@ main .fullElem .bottom-planner .plan .plan-placeholder {
   text-align: start;
   font-weight: 200;
   padding: 2rem 1rem 1rem 1rem;
-  color: var(--white);
+  color: var(--greyWhite);
 }
-main .fullElem .bottom-planner .plan #plan-placeholder:hover {
+main .fullElem .bottom-planner .plan .plan-placeholder:hover {
   border: 1px solid rgba(255, 174, 0, 0.5);
   border-radius: 6px;
   cursor: pointer;
@@ -359,6 +361,72 @@ main .fullElem .bottom-planner .plan #plan-placeholder:hover {
 }
 main .fullElem .bottom-planner:hover {
   border-width: 7px;
+  animation-play-state: running;
+  background-color: var(--black);
+  box-shadow: 0 0 50px var(--bluryYellow);
+}
+main .fullElem .bottom-Motivation {
+  width: 100%;
+  height: 100%;
+  background-color: var(--lightgrey);
+  padding: 1rem 1rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s linear;
+  border-radius: 10px;
+}
+main .fullElem .bottom-Motivation .motivation {
+  width: 65%;
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .fullElem .bottom-Motivation .motivation .motivation-image {
+  width: 35%;
+  background-color: var(--black);
+  border-radius: 10px 0px 0px 10px;
+}
+main .fullElem .bottom-Motivation .motivation .motivation-image video {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+main .fullElem .bottom-Motivation .motivation .motivational-thought {
+  width: 65%;
+  border-radius: 0px 10px 10px 0px;
+  padding: 3rem;
+}
+main .fullElem .bottom-Motivation .motivation .motivational-thought img {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.6;
+}
+main .fullElem .bottom-Motivation .motivation .motivational-thought p {
+  margin-left: 2.5rem;
+  font-size: 2.5rem;
+  text-align: start;
+  font-weight: 500;
+  color: var(--greyWhite);
+  margin-top: 1rem;
+  font-family: fantasy;
+}
+main .fullElem .bottom-Motivation .motivation .motivational-thought h4 {
+  font-size: 1.1rem;
+  text-align: start;
+  font-weight: 500;
+  color: var(--greyWhite);
+  margin-left: 2.5rem;
+  margin-top: 3rem;
+  text-align: end;
+  font-family: cursive;
+}
+main .fullElem .bottom-Motivation:hover {
+  border-width: 0px;
   animation-play-state: running;
   background-color: var(--black);
   box-shadow: 0 0 50px var(--bluryYellow);
