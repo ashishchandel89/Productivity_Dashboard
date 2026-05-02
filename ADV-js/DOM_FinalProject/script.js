@@ -38,7 +38,6 @@ function openFeatures() {
 }
 openFeatures();
 
-
 function todoList() {
   let form = document.querySelector(".addTask form");
   let taskInput = document.querySelector(".addTask form input");
@@ -51,12 +50,11 @@ function todoList() {
     console.log("Task List is Empty");
   }
 
-
   function renderTask() {
     let allTask = document.querySelector(".allTask");
     let sum = "";
 
-   currentTask.forEach(function (elem,idx) {
+    currentTask.forEach(function (elem, idx) {
       sum += `<div class="task"> 
        <div class="top-task">  
         <h5>${elem.task} <span class="${elem.imp}">imp !</span></h5>
@@ -69,31 +67,32 @@ function todoList() {
     });
     allTask.innerHTML = sum;
 
-    localStorage.setItem('currentTask', JSON.stringify(currentTask))
-  
-     document.querySelectorAll('.task button').forEach(function(btn){
-        btn.addEventListener('click',function(){
-            currentTask.splice(btn.id,1);
-           renderTask();
-        })
-    })
-    
-    document.querySelectorAll('.top-task').forEach(function(top){
-      top.addEventListener('click',function(e){
-        if(e.target.tagName==='BUTTON')
+    localStorage.setItem("currentTask", JSON.stringify(currentTask));
+
+    document.querySelectorAll(".task button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        currentTask.splice(btn.id, 1);
+        renderTask();
+      });
+    });
+
+    document.querySelectorAll(".top-task").forEach(function (top) {
+      top.addEventListener("click", function (e) {
+        if (e.target.tagName === "BUTTON") return;
+        let detail = top.parentElement.querySelector(".detail");
+        if (detail.innerText.trim() === "") {
+          detail.style.display = "none";
           return;
-         let detail = top.parentElement.querySelector('.detail');
-        if(detail.style.display==='block'){
-          detail.style.display='none';
         }
-        else{
-          detail.style.display='block';
+        if (detail.style.display === "block") {
+          detail.style.display = "none";
+        } else {
+          detail.style.display = "block";
         }
       });
     });
   }
   renderTask();
-
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -103,13 +102,30 @@ function todoList() {
       imp: taskCheckBox.checked,
     });
     renderTask();
-    
+
     taskInput.value = "";
     taskDetails.value = "";
     taskCheckBox.checked = false;
   });
-
- 
-
 }
 todoList();
+
+function dailyPlanner() {
+  let bottom = document.querySelector(".bottom-planner");
+  let plan = document.querySelector(".bottom-planner .plan");
+  let plannerSum = "";
+  let hrs = Array.from({ length: 18 }, function (dets, idx) {
+    return `${6 + idx}:00 - ${7 + idx}:00`;
+  });
+  hrs.forEach(function (elem, idx) {
+    plannerSum =
+      plannerSum +
+      `<div class="plan">
+              <h4>${elem}</h4>
+              <input type="text" placeholder="..." id="${idx}" class="plan-placeholder">
+            </div>
+      `;
+  });
+  bottom.innerHTML = plannerSum;
+}
+dailyPlanner();
