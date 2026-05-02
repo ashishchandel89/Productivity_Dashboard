@@ -143,6 +143,14 @@ function dailyPlanner() {
 dailyPlanner();
 
 function motivationalQuotes(){
-  
+ 
+  let motivation_paragraph=document.querySelector('.motivational-thought  p');
+  let motivation_author=document.querySelector('.motivational-thought  h4')
+    async function fetch_MotivationalQuotes(){
+        let response=await fetch('https://api.quotable.io/random')
+        let data=await response.json();
+         console.log("hello")
+    }
+    fetch_MotivationalQuotes();
 }
 motivationalQuotes();
