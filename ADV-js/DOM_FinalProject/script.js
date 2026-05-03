@@ -147,9 +147,17 @@ function motivationalQuotes(){
   let motivation_paragraph=document.querySelector('.motivational-thought  p');
   let motivation_author=document.querySelector('.motivational-thought  h4')
     async function fetch_MotivationalQuotes(){
-        let response=await fetch('https://api.quotable.io/random')
+      try{
+        let response=await fetch(`https://api.api-ninjas.com/v2/randomquotes`,{method:'GET',headers:{'X-Api-Key':'zV6HDbQnr07qWFdrqStXQ8rDB3QH1awXph60cU5q'}});
         let data=await response.json();
-         console.log("hello")
+        console.log(data)
+         motivation_paragraph.innerHTML=data[0].quote;
+         motivation_author.innerHTML="<b>-</b> "+data[0].author;
+
+      }
+      catch(Exception){
+        console.log(Exception)
+      }
     }
     fetch_MotivationalQuotes();
 }

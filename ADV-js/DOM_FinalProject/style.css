@@ -322,6 +322,7 @@ main .fullElem .bottom-planner {
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   border-radius: 10px;
+  border-width: 6px;
   margin-top: 3rem;
   gap: 2.5rem;
   scrollbar-width: none; /* Firefox */
@@ -364,6 +365,7 @@ main .fullElem .bottom-planner:hover {
   animation-play-state: running;
   background-color: var(--black);
   box-shadow: 0 0 50px var(--bluryYellow);
+  transform: scale(0.98);
 }
 main .fullElem .bottom-Motivation {
   width: 100%;
@@ -371,6 +373,7 @@ main .fullElem .bottom-Motivation {
   background-color: var(--lightgrey);
   padding: 1rem 1rem;
   margin-top: 3rem;
+  border-width: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -404,7 +407,7 @@ main .fullElem .bottom-Motivation .motivation .motivational-thought {
 main .fullElem .bottom-Motivation .motivation .motivational-thought img {
   width: 3rem;
   height: 3rem;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 main .fullElem .bottom-Motivation .motivation .motivational-thought p {
   margin-left: 2.5rem;
@@ -426,8 +429,49 @@ main .fullElem .bottom-Motivation .motivation .motivational-thought h4 {
   font-family: cursive;
 }
 main .fullElem .bottom-Motivation:hover {
-  border-width: 0px;
+  border-width: 7px;
   animation-play-state: running;
-  background-color: var(--black);
+  background: linear-gradient(70deg, rgba(255, 204, 51, 0), rgba(255, 204, 51, 0.132), rgba(255, 178, 71, 0.107), rgba(255, 204, 51, 0.04));
   box-shadow: 0 0 50px var(--bluryYellow);
+  transform: scale(0.98);
+}
+main .fullElem .bottom-Motivation:hover .motivation {
+  background-color: var(--lightgrey);
+}
+main .fullElem .bottom-timer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--lightgrey);
+  padding: 1rem 1rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s linear;
+  border-radius: 10px;
+}
+main .fullElem .bottom-timer .pomo-timer {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  background-color: var(--lightgrey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .fullElem .bottom-timer .pomo-timer .under-pomo-timer {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.696);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .under-under-pomo-timer {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background-color: var(--black);
+  box-shadow: 1px 1px 100px var(--red);
 }/*# sourceMappingURL=style.css.map */
