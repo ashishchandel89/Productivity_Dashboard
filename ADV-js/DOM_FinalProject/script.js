@@ -164,45 +164,92 @@ motivationalQuotes();
 
 function pomodoroTimer() {
   let h2 = document.querySelector(".under-pomo-timer h2");
-  let startBtn = document.querySelector(
-    ".under-pomo-timer .timer .start-timer",
-  );
-  let pauseBtn = document.querySelector(
-    ".under-pomo-timer .timer .pause-timer",
-  );
-  let resetBtn = document.querySelector(
-    ".under-pomo-timer .timer .reset-timer",
-  );
-  let underPomo_timer = document.querySelector(".under-pomo-timer");
+  let btnStartPause = document.querySelector(".btn-timer"); 
+  let toggleImg = document.querySelector(".btn-timer img"); 
+  let underTimer = document.querySelector(".under-pomo-timer");
+  let bottomTimer = document.querySelector(".bottom-timer");
+  let btnReset=document.querySelector(".reset-timer");
+  let h3=document.querySelector(".under-pomo-timer h3");
   let interval = null;
+  let isRunning = false;
   let totalSeconds = 25 * 60;
+  let isWorkSession=true;
   function updateTimer() {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
     h2.innerHTML = `${String(minutes).padStart("2", "0")}:${String(seconds).padStart("2", "0")}`;
   }
   function startTimer() {
+    clearInterval(interval);
+    if(isWorkSession){
     interval = setInterval(() => {
       if (totalSeconds > 0) {
         totalSeconds--;
         updateTimer();
       } else {
         clearInterval(interval);
-        interval = null;
+        totalSeconds = 5 * 60;
+        updateTimer();
+        isWorkSession = false;
+        isRunning = false;
+        h3.innerHTML="Break Session"
+        toggleImg.src = "./start3.png"; 
+        underTimer.classList.remove("active"); 
+        bottomTimer.classList.remove("active");
+
+      interval = null;
       }
     }, 1000);
   }
-  function pauseTimer(){
-    clearInterval(interval);
+  else{
+     interval = setInterval(() => {
+      if (totalSeconds > 0) {
+        totalSeconds--;
+        updateTimer();
+      } else {
+        clearInterval(interval);
+        totalSeconds = 25 * 60;
+        updateTimer();
+        isWorkSession = true;
+        h3.innerHTML="Work Session";
+        isRunning = true;
+        toggleImg.src = "./start3.png"; 
+        underTimer.classList.remove("active"); 
+        bottomTimer.classList.remove("active");
+      }
+    }, 1000);
   }
+}
 
-  startBtn.addEventListener("click", function () {
-    underPomo_timer.classList.add("active");
-    startTimer();
+
+  btnStartPause.addEventListener("click", function () {
+    if (!isRunning) {
+      startTimer();
+      isRunning = true;
+      toggleImg.src = "./pause3.png"; 
+      underTimer.classList.add("active"); 
+      bottomTimer.classList.add("active");
+    } 
+    else {
+      clearInterval(interval);
+      interval = null;
+      isRunning = false;
+      toggleImg.src = "./start3.png"; 
+      underTimer.classList.remove("active"); 
+      bottomTimer.classList.remove("active");
+
+    }
   });
-  pauseBtn.addEventListener("click",function(){
-    pauseTimer();
-    underPomo_timer.style.animationPlayState="paused";
+  
+  btnReset.addEventListener('click',function(){
+    totalSeconds=25*60;
+    clearInterval(interval);
+    updateTimer();
+    toggleImg.src="./start3.png";
+    underTimer.classList.remove("active");
+     bottomTimer.classList.remove("active");
+
   })
+
 }
 pomodoroTimer();

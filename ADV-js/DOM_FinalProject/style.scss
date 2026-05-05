@@ -10,16 +10,17 @@ body {
   font-family: aeonik;
 }
 :root {
-  --black: black;
+  --black: rgb(0, 0, 0);
   --green: rgb(72, 132, 59);
   --grey: rgba(245, 235, 235, 0.405);
   --red: rgba(255, 0, 0, 0.74);
-  --white: white;
+  --white: rgb(255, 255, 255);
   --lightgrey: #d6d5d417;
   --bluryYellow: rgba(255, 174, 0, 0.34);
   --yellow: rgb(255, 174, 0);
-  --darkgreen: green;
+  --darkgreen: rgb(1, 132, 1);
   --greyWhite: rgb(186, 185, 185);
+  --purple:rgb(148, 1, 148);
 }
 @font-face {
   font-family: aeonik;
@@ -90,13 +91,13 @@ body {
   }
 }
 @mixin timer-button() {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   box-shadow: 2px 1px 10px var(--bluryYellow);
-  padding:1rem;
+  padding: 1rem;
   img {
     width: 100%;
     height: 100%;
@@ -545,7 +546,7 @@ main {
             linear-gradient(rgb(0, 0, 0)) padding-box,
             conic-gradient(
                 from var(--rotate),
-                var(--red),
+                var(--bluryYellow),
                 var(--lightgrey),
                 var(--white)
               )
@@ -556,7 +557,7 @@ main {
           animation-timing-function: linear;
           animation-play-state: paused;
           text-shadow: 0 0 0px var(--lightgrey);
-          color: white;
+          color: var(--white);
           transition: all 0.3s linear;
           h2 {
             color: var(--white);
@@ -567,16 +568,28 @@ main {
             display: flex;
             justify-content: center;
             align-items: center;
+
             gap: 2rem;
             margin-top: 2rem;
-            .start-timer {
+            .btn-timer {
               @include timer-button();
-            }
-            .pause-timer {
-              @include timer-button();
+              margin-left: 4rem;
+              cursor: pointer;
             }
             .reset-timer {
-              @include timer-button();
+              width: 1.7rem;
+              height: 1.7rem;
+              border-radius: 50%;
+              background-color: rgba(0, 0, 0, 0);
+              border: none;
+              box-shadow: 2px 1px 10px var(--bluryYellow);
+              padding: 0.3rem;
+              cursor: pointer;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
             }
           }
         }
@@ -584,15 +597,15 @@ main {
           animation-play-state: running;
           border-width: 5px;
           background:
-            linear-gradient(rgba(0, 0, 0, 0.871)) padding-box,
+            linear-gradient(rgba(0, 0, 0, 0.885)) padding-box,
             conic-gradient(
                 from var(--rotate),
-                var(--red),
+                var(--bluryYellow),
                 var(--lightgrey),
                 var(--white)
               )
               border-box;
-          box-shadow: 0 0 50px var(--red);
+          box-shadow: 0 0 30px var(--bluryYellow);
           color: var(--lightgrey);
           text-shadow: 0 0 10px var(--lightgrey);
         }

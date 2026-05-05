@@ -12,16 +12,17 @@ body {
 }
 
 :root {
-  --black: black;
+  --black: rgb(0, 0, 0);
   --green: rgb(72, 132, 59);
   --grey: rgba(245, 235, 235, 0.405);
   --red: rgba(255, 0, 0, 0.74);
-  --white: white;
+  --white: rgb(255, 255, 255);
   --lightgrey: #d6d5d417;
   --bluryYellow: rgba(255, 174, 0, 0.34);
   --yellow: rgb(255, 174, 0);
-  --darkgreen: green;
+  --darkgreen: rgb(1, 132, 1);
   --greyWhite: rgb(186, 185, 185);
+  --purple:rgb(148, 1, 148);
 }
 
 @font-face {
@@ -495,14 +496,14 @@ main .fullElem .bottom-timer .pomo-timer .under-pomo-timer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(rgb(0, 0, 0)) padding-box, conic-gradient(from var(--rotate), var(--red), var(--lightgrey), var(--white)) border-box;
+  background: linear-gradient(rgb(0, 0, 0)) padding-box, conic-gradient(from var(--rotate), var(--bluryYellow), var(--lightgrey), var(--white)) border-box;
   border: 3px solid rgba(255, 255, 255, 0);
   animation: borderAnimate 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-play-state: paused;
   text-shadow: 0 0 0px var(--lightgrey);
-  color: white;
+  color: var(--white);
   transition: all 0.3s linear;
 }
 main .fullElem .bottom-timer .pomo-timer .under-pomo-timer h2 {
@@ -517,44 +518,34 @@ main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer {
   gap: 2rem;
   margin-top: 2rem;
 }
-main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .start-timer {
-  width: 3rem;
-  height: 3rem;
+main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .btn-timer {
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   box-shadow: 2px 1px 10px var(--bluryYellow);
   padding: 1rem;
 }
-main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .start-timer img {
+main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .btn-timer img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .pause-timer {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  box-shadow: 2px 1px 10px var(--bluryYellow);
-  padding: 1rem;
-}
-main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .pause-timer img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .btn-timer {
+  margin-left: 4rem;
+  cursor: pointer;
 }
 main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .reset-timer {
-  width: 3rem;
-  height: 3rem;
+  width: 1.7rem;
+  height: 1.7rem;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   box-shadow: 2px 1px 10px var(--bluryYellow);
-  padding: 1rem;
+  padding: 0.3rem;
+  cursor: pointer;
 }
 main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .reset-timer img {
   width: 100%;
@@ -565,8 +556,8 @@ main .fullElem .bottom-timer .pomo-timer .under-pomo-timer .timer .reset-timer i
 main .fullElem .bottom-timer .pomo-timer .under-pomo-timer.active {
   animation-play-state: running;
   border-width: 5px;
-  background: linear-gradient(rgba(0, 0, 0, 0.871)) padding-box, conic-gradient(from var(--rotate), var(--red), var(--lightgrey), var(--white)) border-box;
-  box-shadow: 0 0 50px var(--red);
+  background: linear-gradient(rgba(0, 0, 0, 0.885)) padding-box, conic-gradient(from var(--rotate), var(--bluryYellow), var(--lightgrey), var(--white)) border-box;
+  box-shadow: 0 0 30px var(--bluryYellow);
   color: var(--lightgrey);
   text-shadow: 0 0 10px var(--lightgrey);
 }
