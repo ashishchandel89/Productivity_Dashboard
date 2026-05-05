@@ -38,6 +38,8 @@ function openFeatures() {
 }
 openFeatures();
 
+//---------------------------To-Do-List--------------------------
+
 function todoList() {
   let form = document.querySelector(".addTask form");
   let taskInput = document.querySelector(".addTask form input");
@@ -110,6 +112,8 @@ function todoList() {
 }
 todoList();
 
+//-----------------------------Daily-Planner-----------------------
+
 function dailyPlanner() {
   let bottom = document.querySelector(".bottom-planner");
   let plan = document.querySelector(".bottom-planner .plan");
@@ -141,6 +145,8 @@ function dailyPlanner() {
 }
 dailyPlanner();
 
+//-------------------------------Motivational-Quotes----------------
+
 function motivationalQuotes() {
   let motivation_paragraph = document.querySelector(".motivational-thought  p");
   let motivation_author = document.querySelector(".motivational-thought  h4");
@@ -161,6 +167,8 @@ function motivationalQuotes() {
   fetch_MotivationalQuotes();
 }
 motivationalQuotes();
+
+//-------------------------------Pomodoro-Timer----------------------
 
 function pomodoroTimer() {
   let h2 = document.querySelector(".under-pomo-timer h2");
@@ -253,3 +261,21 @@ function pomodoroTimer() {
 
 }
 pomodoroTimer();
+
+//-------------------------------Daily-Goals-------------------------
+
+function dailyGoals(){
+  let priorityTaskName=document.querySelectorAll('.addGoals .PriorityTaskName');
+  let secondaryTaskName=document.querySelectorAll('.addGoals .SecondaryTaskName');
+  let personalTaskName=document.querySelectorAll('.addGoals .PersonalTaskName');
+  let btnPriorityGoal=document.querySelectorAll('.addGoals  #1');
+  let btnSecondaryGoal=document.querySelectorAll('.addGoals  #2');
+  let btnPersonalGoal=document.querySelectorAll('.addGoals #3');
+  priorityTaskName.addEventListener('input',function(){
+     console.log(priorityTaskName.values);
+  })
+  btnPriorityGoal.addEventListener('click',function(){
+    console.log('clicked')
+  })
+}
+dailyGoals();

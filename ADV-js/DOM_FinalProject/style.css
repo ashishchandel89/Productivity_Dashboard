@@ -16,13 +16,14 @@ body {
   --green: rgb(72, 132, 59);
   --grey: rgba(245, 235, 235, 0.405);
   --red: rgba(255, 0, 0, 0.74);
+  --lightred:rgb(255, 0, 0);
   --white: rgb(255, 255, 255);
   --lightgrey: #d6d5d417;
   --bluryYellow: rgba(255, 174, 0, 0.34);
   --yellow: rgb(255, 174, 0);
   --darkgreen: rgb(1, 132, 1);
   --greyWhite: rgb(186, 185, 185);
-  --purple:rgb(148, 1, 148);
+  --purple: rgb(148, 1, 148);
 }
 
 @font-face {
@@ -570,4 +571,258 @@ main .fullElem .bottom-timer:hover {
 }
 main .fullElem .bottom-timer:hover .pomo-timer {
   background-color: var(--lightgrey);
+}
+main .fullElem .bottom-goals {
+  width: 100%;
+  background-color: var(--lightgrey);
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: start;
+  transition: all 0.6s linear;
+  border-radius: 10px;
+  gap: 1rem;
+}
+main .fullElem .bottom-goals .addGoals {
+  width: 31%;
+  background-color: var(--black);
+  border-radius: 10px;
+}
+main .fullElem .bottom-goals .addGoals form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+main .fullElem .bottom-goals .addGoals form #taskName {
+  width: 100%;
+  height: 3.6rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+  border: none;
+}
+main .fullElem .bottom-goals .addGoals form textarea {
+  padding: 1rem;
+  width: 100%;
+  height: 90%;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-weight: 200;
+  color: var(--white);
+  background-color: var(--lightgrey);
+  border: none;
+  outline: none;
+}
+main .fullElem .bottom-goals .addGoals form .addGoalBtn {
+  padding: 15px 25px;
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--bluryYellow);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  outline: none;
+  margin-bottom: 20px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+main .bottom-goals:hover {
+  border-width: 7px;
+  animation-play-state: running;
+  background-color: var(--black);
+  box-shadow: 0 0 50px var(--bluryYellow);
+  transform: scale(0.98);
+}
+main .bottom-goals:hover .addGoals {
+  background-color: var(--lightgrey);
+}
+main .bottom-goals:hover .allGoals {
+  background-color: var(--black);
+}
+main .allGoals {
+  width: 100%;
+  background-color: var(--lightgrey);
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.6s linear;
+  border-radius: 10px;
+  gap: 1rem;
+}
+main .allGoals .allPriorityGoals {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--black);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .allGoals .allPriorityGoals h1 {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 200;
+}
+main .allGoals .allPriorityGoals .showGoals {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+main .allGoals .allPriorityGoals .showGoals .Goals {
+  width: 20rem;
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+  transition: all 0.6s linear;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+main .allGoals .allPriorityGoals .showGoals .Goals h2 {
+  color: var(--lightred);
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+main .allGoals .allPriorityGoals .showGoals .Goals p {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+main .allGoals .allPriorityGoals .showGoals .Goals:hover {
+  border: 2px solid var(--bluryYellow);
+}
+main .allGoals .allSecondaryGoals {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--black);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .allGoals .allSecondaryGoals h1 {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 200;
+}
+main .allGoals .allSecondaryGoals .showGoals {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+main .allGoals .allSecondaryGoals .showGoals .Goals {
+  width: 20rem;
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+  transition: all 0.6s linear;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+main .allGoals .allSecondaryGoals .showGoals .Goals h2 {
+  color: var(--lightred);
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+main .allGoals .allSecondaryGoals .showGoals .Goals p {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+main .allGoals .allSecondaryGoals .showGoals .Goals:hover {
+  border: 2px solid var(--bluryYellow);
+}
+main .allGoals .allPersonalGoals {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--black);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .allGoals .allPersonalGoals h1 {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 200;
+}
+main .allGoals .allPersonalGoals .showGoals {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+main .allGoals .allPersonalGoals .showGoals .Goals {
+  width: 20rem;
+  background-color: var(--lightgrey);
+  border-radius: 10px;
+  transition: all 0.6s linear;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+main .allGoals .allPersonalGoals .showGoals .Goals h2 {
+  color: var(--lightred);
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+main .allGoals .allPersonalGoals .showGoals .Goals p {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+main .allGoals .allPersonalGoals .showGoals .Goals:hover {
+  border: 2px solid var(--bluryYellow);
+}
+main .allGoals:hover {
+  border-width: 7px;
+  animation-play-state: running;
+  background-color: var(--black);
+  box-shadow: 0 0 50px var(--bluryYellow);
+  transform: scale(0.98);
+}
+main .allGoals:hover .allPriorityGoals {
+  background-color: var(--lightgrey);
+}
+main .allGoals:hover .allPriorityGoals .showGoals .Goals {
+  background-color: var(--black);
+}
+main .allGoals:hover .allSecondaryGoals {
+  background-color: var(--lightgrey);
+}
+main .allGoals:hover .allPersonalGoals {
+  background-color: var(--lightgrey);
+}
+main .allGoals:hover .allPersonalGoals .showGoals .Goals {
+  background-color: var(--black);
 }/*# sourceMappingURL=style.css.map */
