@@ -114,13 +114,13 @@ function dailyPlanner() {
   let bottom = document.querySelector(".bottom-planner");
   let plan = document.querySelector(".bottom-planner .plan");
   let plannerSum = "";
-  let plannerObject={};
-  let planData=JSON.parse(localStorage.getItem('planData')) || {};
+  let plannerObject = {};
+  let planData = JSON.parse(localStorage.getItem("planData")) || {};
   let hrs = Array.from({ length: 18 }, function (dets, idx) {
     return `${6 + idx}:00 - ${7 + idx}:00`;
   });
   hrs.forEach(function (elem, idx) {
-    let savedData=planData[idx] || '';
+    let savedData = planData[idx] || "";
     plannerSum =
       plannerSum +
       `<div class="plan">
@@ -131,34 +131,78 @@ function dailyPlanner() {
   });
   bottom.innerHTML = plannerSum;
 
-  let plannerInput=document.querySelectorAll('.plan input');
-  plannerInput.forEach(function(elem){
-    elem.addEventListener('input',function(){
-      planData[elem.id]=elem.value;
-      localStorage.setItem('planData',JSON.stringify(planData));
-    })
-  })
-
+  let plannerInput = document.querySelectorAll(".plan input");
+  plannerInput.forEach(function (elem) {
+    elem.addEventListener("input", function () {
+      planData[elem.id] = elem.value;
+      localStorage.setItem("planData", JSON.stringify(planData));
+    });
+  });
 }
 dailyPlanner();
 
-function motivationalQuotes(){
- 
-  let motivation_paragraph=document.querySelector('.motivational-thought  p');
-  let motivation_author=document.querySelector('.motivational-thought  h4')
-    async function fetch_MotivationalQuotes(){
-      try{
-        let response=await fetch(`https://api.api-ninjas.com/v2/randomquotes`,{method:'GET',headers:{'X-Api-Key':'zV6HDbQnr07qWFdrqStXQ8rDB3QH1awXph60cU5q'}});
-        let data=await response.json();
-        console.log(data)
-         motivation_paragraph.innerHTML=data[0].quote;
-         motivation_author.innerHTML="<b>-</b> "+data[0].author;
-
-      }
-      catch(Exception){
-        console.log(Exception)
-      }
+function motivationalQuotes() {
+  let motivation_paragraph = document.querySelector(".motivational-thought  p");
+  let motivation_author = document.querySelector(".motivational-thought  h4");
+  async function fetch_MotivationalQuotes() {
+    try {
+      let response = await fetch(`https://api.api-ninjas.com/v2/randomquotes`, {
+        method: "GET",
+        headers: { "X-Api-Key": "zV6HDbQnr07qWFdrqStXQ8rDB3QH1awXph60cU5q" },
+      });
+      let data = await response.json();
+      console.log(data);
+      motivation_paragraph.innerHTML = data[0].quote;
+      motivation_author.innerHTML = "<b>-</b> " + data[0].author;
+    } catch (Exception) {
+      console.log(Exception);
     }
-    fetch_MotivationalQuotes();
+  }
+  fetch_MotivationalQuotes();
 }
 motivationalQuotes();
+
+function pomodoroTimer() {
+  let h2 = document.querySelector(".under-pomo-timer h2");
+  let startBtn = document.querySelector(
+    ".under-pomo-timer .timer .start-timer",
+  );
+  let pauseBtn = document.querySelector(
+    ".under-pomo-timer .timer .pause-timer",
+  );
+  let resetBtn = document.querySelector(
+    ".under-pomo-timer .timer .reset-timer",
+  );
+  let underPomo_timer = document.querySelector(".under-pomo-timer");
+  let interval = null;
+  let totalSeconds = 25 * 60;
+  function updateTimer() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+    h2.innerHTML = `${String(minutes).padStart("2", "0")}:${String(seconds).padStart("2", "0")}`;
+  }
+  function startTimer() {
+    interval = setInterval(() => {
+      if (totalSeconds > 0) {
+        totalSeconds--;
+        updateTimer();
+      } else {
+        clearInterval(interval);
+        interval = null;
+      }
+    }, 1000);
+  }
+  function pauseTimer(){
+    clearInterval(interval);
+  }
+
+  startBtn.addEventListener("click", function () {
+    underPomo_timer.classList.add("active");
+    startTimer();
+  });
+  pauseBtn.addEventListener("click",function(){
+    pauseTimer();
+    underPomo_timer.style.animationPlayState="paused";
+  })
+}
+pomodoroTimer();
